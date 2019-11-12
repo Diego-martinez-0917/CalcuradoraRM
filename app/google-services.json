@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "469492141340",
+    "firebase_url": "https://calculadora-rm.firebaseio.com",
+    "project_id": "calculadora-rm",
+    "storage_bucket": "calculadora-rm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469492141340:android:bc048138203c5c52e27ed9",
+        "android_client_info": {
+          "package_name": "com.example.drica.calcuradorarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469492141340-s9mqkvnm82oev76vk5nqag9b9relok6b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.drica.calcuradorarm",
+            "certificate_hash": "f3dabc29cc350b7d53b01836ce48a4504c3e489d"
+          }
+        },
+        {
+          "client_id": "469492141340-v4ojnm7ofnssaenlqc6psavgh28imsac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8jen7hSQD4EF_pEu7YuqGBawOOgooXT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469492141340-v4ojnm7ofnssaenlqc6psavgh28imsac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
