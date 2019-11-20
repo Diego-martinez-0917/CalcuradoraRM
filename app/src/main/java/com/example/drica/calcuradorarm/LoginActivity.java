@@ -20,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,11 +32,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.drica.calcuradorarm.Model.DataUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +58,10 @@ public class LoginActivity extends AppCompatActivity {
     private Button text_registry_here;
     private Button mEmailSignInButton;
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
+    private DatabaseReference databaseReference;
+    private String token;
+    private DataUser dataUser;
 
 
     @Override
@@ -60,6 +71,8 @@ public class LoginActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         mEmailView =  findViewById(R.id.email);
         mPasswordView = findViewById(R.id.password);
+
+
 
         // OnClicklitener event here
         mEmailSignInButton = findViewById(R.id.email_sign_in_button);
@@ -83,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+         firebaseUser = firebaseAuth.getCurrentUser();
         Statususer(firebaseUser);
     }
 
@@ -155,26 +168,27 @@ public class LoginActivity extends AppCompatActivity {
         return password.length() > 4;
     }
 
-    private void singin(String ema,String pass){
+    private void singin(String ema,String pass) {
         firebaseAuth.signInWithEmailAndPassword(ema, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     // Sign in success, update UI with the signed-in user's information
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                    showMainActivity();
+                    Log.e("mitag", "logeo correcto");
+                    showMainActivity();//carga la actividad principal
                 } else {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(LoginActivity.this, "correo o contraseña incorrentos ",
                             Toast.LENGTH_LONG).show();
-
                 }
             }
         });
     }
 
+
+
     private void showMainActivity(){
-        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this,Main_Activity.class);
         startActivity(intent);
         finish();
 

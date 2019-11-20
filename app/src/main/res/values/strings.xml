@@ -17,4 +17,16 @@
     <string name="lastname_text">Apellido</string>
     <string name="registry_text">Registrar</string>
     <string name="icono_de_usuario">icono de usuario</string>
+    <string name="size_person">Talla</string>
+    <string name="age_person">Edad</string>
+    <string name="title_activity_main_">Calculadora RM</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="update">Actualizar</string>
+    <string name="title_activity_graphic">GraphicActivity</string>
+    <string name="title_activity_graficos">Grafico</string>
 </resources>

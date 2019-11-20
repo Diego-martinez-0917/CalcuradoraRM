@@ -7,62 +7,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/activity_vertical_margin"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_horizontal_margin"
-        android:orientation="vertical">
+    //futura tabla activity
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <EditText
-                android:id="@+id/txt_peso"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="peso levantado"
-                android:inputType="number"
-                android:focusableInTouchMode="true"/>
-
-            <EditText
-                android:id="@+id/txt_repeticiones"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:focusableInTouchMode="true"
-                android:hint="N° repeticiones"
-                android:inputType="number" />
-
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/cal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:text="Calcular"
-
-            android:textColor="@android:color/white" />
-        <TextView
-            android:id="@+id/txv_RM"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"/>
-
-
-
-
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"

@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
         rm = findViewById(R.id.txv_RM);
 
 
-        calcular=findViewById(R.id.cal);
+        /*calcular=findViewById(R.id.cal);
         calcular.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
+
             @Override
             public void onClick(View v) {
                 peso = Integer.parseInt(String.valueOf(text_peso.getText()));
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-        });
+        });*/
     }
     public void gen_tabla(){
         row1.setText(String.valueOf(RM*0.80));
