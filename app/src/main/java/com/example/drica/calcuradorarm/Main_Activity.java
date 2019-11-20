@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,16 +35,20 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Main_Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private Button calcular;
     private EditText text_peso;
-    private EditText text_repeticiones;
+    private EditText text_repeti;
     private int peso;
     private int rep;
-    private int RM;
-    private TextView rm;
 
 
+    private Button btnpiramidal;
+    private Button btnprogresivo;
+    private Button btnptrunco;
+    private TextView txthadername;
+    private TextView txthadermail;
+    DataUser dataUser;
 
+    private DatabaseReference databaseReference;
 
 
     @Override
@@ -51,26 +57,50 @@ public class Main_Activity extends AppCompatActivity
         setContentView(R.layout.activity_main_);
 
         text_peso=findViewById(R.id.txt_peso);
-        text_repeticiones = findViewById(R.id.txt_repeticiones);
-        rm = findViewById(R.id.txv_RM);
+        text_repeti = findViewById(R.id.edt_repeticion);
 
 
-
-        calcular=findViewById(R.id.cal);
-        calcular.setOnClickListener(new View.OnClickListener() {
+        btnprogresivo =findViewById(R.id.btprogre);
+        btnprogresivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                peso = Integer.parseInt(String.valueOf(text_peso.getText()));
-                rep = Integer.parseInt(String.valueOf(text_repeticiones.getText()));
-                RM = (int) (peso/(1.0278-(0.0278*rep)));//calculo de rm segun Brzycki
-                DataRM dataRM = new DataRM();
-                dataRM.setRm(RM); //envio de dato de rm a DataRM
-
-                rm.setVisibility(View.VISIBLE);
-                rm.setText(String.valueOf("RM segun Brzycki = "+RM));
+                if (validar()) {
+                    peso = Integer.parseInt(String.valueOf(text_peso.getText()));
+                    rep = Integer.parseInt(String.valueOf(text_repeti.getText()));
+                    enviardatos(1);
+                }
             }
         });
 
+
+
+
+        btnpiramidal = findViewById(R.id.btpirami);
+        btnpiramidal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validar()) {
+                    peso = Integer.parseInt(String.valueOf(text_peso.getText()));
+                    rep = Integer.parseInt(String.valueOf(text_repeti.getText()));
+                    enviardatos(2);
+                }
+
+            }
+        });
+
+        btnptrunco =findViewById(R.id.bttrunco);
+        btnptrunco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validar()) {
+                    peso = Integer.parseInt(String.valueOf(text_peso.getText()));
+                    rep = Integer.parseInt(String.valueOf(text_repeti.getText()));
+                    enviardatos(3);
+                }
+            }
+        });
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -83,17 +113,42 @@ public class Main_Activity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
+
+
+
+    private void enviardatos(int est) {
+
+
+        Log.e("mitag",peso+" "+rep);
+        Intent intent = new Intent(Main_Activity.this,graficosActivity.class);
+        intent.putExtra("peso",peso);
+        intent.putExtra("rep",rep);
+        intent.putExtra("est",est);
+        startActivity(intent);
+
 
 
 
     }
 
+    private boolean validar() {
+        boolean complete=true;
+        text_peso.setError(null);
+        text_repeti.setError(null);
 
-
-
+        // Store values at the time of the login attempt.
+        String peso = text_peso.getText().toString();
+        String repe = text_repeti.getText().toString();
+        if (TextUtils.isEmpty(peso)){
+            text_peso.setError(getString(R.string.error_field_required));
+            complete = false;
+        }
+        if (TextUtils.isEmpty(repe)){
+            text_repeti.setError(getString(R.string.error_field_required));
+            complete = false;
+        }
+        return complete;
+    }
 
     @Override
     public void onBackPressed() {
@@ -137,7 +192,8 @@ public class Main_Activity extends AppCompatActivity
             Intent intent = new Intent(Main_Activity.this,UpdateActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_record) {
-
+            Intent intent = new Intent(Main_Activity.this,HistorialActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_singOut) {
             FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
             firebaseAuth.signOut();

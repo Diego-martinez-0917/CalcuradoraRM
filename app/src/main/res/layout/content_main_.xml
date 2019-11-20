@@ -34,7 +34,7 @@
                 android:focusableInTouchMode="true"/>
 
             <EditText
-                android:id="@+id/txt_repeticiones"
+                android:id="@+id/edt_repeticion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -46,36 +46,35 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/cal"
+            android:id="@+id/btprogre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
             android:background="@color/colorAccent"
             android:text="Metodo Progresivo"
             android:textColor="@android:color/white"
+            />
+
+        <Button
+            android:id="@+id/btpirami"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:background="@color/colorAccent"
-            android:textColor="@color/white"
             android:text="Metodo piramidal"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"/>
+            android:textColor="@color/white"
+             />
 
         <Button
+            android:id="@+id/bttrunco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorAccent"
+            android:text="Metodo trunco"
             android:textColor="@color/white"
-            android:text="Metodo trunco"/>
-        <TextView
-            android:id="@+id/txv_RM"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"/>
+            />
+
 
 
 

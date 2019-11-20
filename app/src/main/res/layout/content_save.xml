@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".SaveActivity"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
+    tools:showIn="@layout/activity_save"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <EditText
+            android:id="@+id/edtejercicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del Ejecicio"
+            android:inputType="textCapWords|textPersonName"
+            android:importantForAutofill="no"
+            tools:targetApi="o"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <TableRow
+        android:id="@+id/row_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/TextviewRowT1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/textview_border"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Peso"
+            android:textSize="@dimen/SizeTitleTable"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextviewRowpeso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/textview_border"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textSize="@dimen/SizeTitleTable"
+            android:textStyle="bold" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/row_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/TextviewRowT2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textview_border"
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_weight="1"
+            android:text="Repeticiones"
+            android:textSize="@dimen/SizeTitleTable"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextviewRowrep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/textview_border"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textSize="@dimen/SizeTitleTable"
+            android:textStyle="bold" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/row_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/TextviewRowT3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/textview_border"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="RM"
+            android:textSize="@dimen/SizeTitleTable"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextviewRowRM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/textview_border"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textSize="@dimen/SizeTitleTable"
+            android:textStyle="bold" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/row_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/TextviewRowT4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/textview_border"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Metodo"
+            android:textSize="@dimen/SizeTitleTable"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextviewRowMetodo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/textview_border"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textSize="@dimen/SizeTitleTable"
+            android:textStyle="bold" />
+    </TableRow>
+    <EditText
+        android:id="@+id/edtcomentarios"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:hint="Comentarios"
+        android:inputType="textLongMessage"/>
+    <Button
+        android:id="@+id/butttonsave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="guardar"
+        android:background="@color/colorAccent"/>
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>
+
